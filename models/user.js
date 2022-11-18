@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose');
-const thoughtSchema = require('./Thought');
+const thoughtSchema = require('./thought');
 
-const userSchema(
+const userSchema = new Schema (
     {
         username: {
             type: String,
@@ -14,20 +14,22 @@ const userSchema(
             type: String,
             uniquie: true,
             required: true,
-            match: /.+\@.+\..+/
+            match: [
+                /.+\@.+\..+/
+            ],
         },
 
         thought: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Thought',
+                ref: 'thought',
             },
         ],
         
         friend: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'User',
+                ref: 'user',
             },
         ],
     },
