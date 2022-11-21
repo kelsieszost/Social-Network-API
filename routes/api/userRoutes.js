@@ -14,7 +14,7 @@ const {
     router
     .route('/')
     .get(getUsers)
-    .post(createStudent);
+    .post(addNewUser);
 
     // /api/users/:id
     router
