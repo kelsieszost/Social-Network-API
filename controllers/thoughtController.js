@@ -12,7 +12,7 @@ const thoughtController = {
       });
   },
 
-  // http://localhost:3001/api/thoughts
+  // http://localhost:3001/api/thoughts/id
   thoughtById(req, res) {
     Thought.findOne({ _id: req.params.id })
       .then((dbThoughtData) => {

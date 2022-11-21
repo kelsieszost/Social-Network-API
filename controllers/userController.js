@@ -15,7 +15,7 @@ const userController = {
   },
 
 //get users by id
-//http://localhost:3001/api/goals/id
+//http://localhost:3001/api/users/id
   getUserByID(req,res) {
     User.findOne({_id: req.params.id})
       .then((dbUserData) => res.json(dbUserData))
@@ -26,7 +26,7 @@ const userController = {
   },
 
 //add new user
-//http://localhost:3001/api/goals/  
+//http://localhost:3001/api/users/  
   addNewUser(req, res) {
     User.create(req.body)
     .then(UserData => res.json(UserData))
