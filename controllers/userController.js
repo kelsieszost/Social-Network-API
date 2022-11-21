@@ -3,7 +3,7 @@ const { Thought, User } = require("../models");
 const userController = {
   // GET all Users
   getUsers(req, res) {
-    user.find({})
+    User.find({})
       .populate("thoughts")
       .populate("friends")
       .select("-__v")
