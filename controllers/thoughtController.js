@@ -1,4 +1,5 @@
 const { Thought, User } = require("../models");
+const { ObjectId } = require('mongoose').Types;
 
 const thoughtController = {
   // get thoughts
@@ -14,7 +15,7 @@ const thoughtController = {
 
   // http://localhost:3001/api/thoughts/id
   thoughtById(req, res) {
-    Thought.findOne({ _id: req.params.id })
+    Thought.findOne({ _id: ObjectId(req.params.id)})
       .then((dbThoughtData) => {
         !dbThoughtData
           ? res.status(404).json({
@@ -47,7 +48,7 @@ const thoughtController = {
 
   //update a thought
   updateThought({ params, body }, res) {
-    Thought.findOneAndUpdate({ _id: params.id }, body, {
+    Thought.findOneAndUpdate({ _id: ObjectId(req.params.id)}, body, {
       new: true,
       runValidators: true,
     })
@@ -63,7 +64,7 @@ const thoughtController = {
 
   //delete thought
   deleteThought(req, res) {
-    Thought.findOneAndDelete({ _id: req.params.id })
+    Thought.findOneAndDelete({ _id: ObjectId(req.params.id)})
       .then((dbThoughtData) => {
         !dbThoughtData
           ? res.status(404).json({
@@ -81,8 +82,9 @@ const thoughtController = {
 
   //create reaction
   createReaction({ params, body }, res) {
+    console.log(params);
     Thought.findOneAndUpdate(
-      { _id: params.thoughtId },
+      { _id: ObjectId(params.id)},
       { $push: { reactions: body } },
       { new: true, runValidators: true }
     )
@@ -100,8 +102,8 @@ const thoughtController = {
   //delete reaction
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
-      { $pull: { reactions: { reactionId: req.params.reactionId } } }
+      { _id: ObjectId(req.params.id)},
+      { $pull: { reactions: { reactionId: req.params.id } } }
     )
       .then((dbThoughtData) => {
         !dbThoughtData

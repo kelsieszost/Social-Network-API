@@ -21,11 +21,8 @@ router.route('/:id')
     .put(updateThought)
     .delete(deleteThought);
 
-router.route('/:thoughtID/reactions')
-    .post(createReaction)
-
-// http://localhost:3001/api/thoughts/:id/reactions:reactionID
-router.route('/:thoughtID/reactions/:reactionID')
+router.route('/:id/reactions')
+    .put(createReaction)
     .delete(deleteReaction);
 
 module.exports = router;
