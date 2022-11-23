@@ -14,19 +14,19 @@ Git clone this repository onto your local machine.
 -To start the application, run: npm run start 
 
 ## Usage
-GET/ POST routes:
--http://localhost:3001/api/users
--http://localhost:3001/api/thoughts
+USER GET/POST/PUT/DELETE routes:
+- https://watch.screencastify.com/v/BN8pjdiICEsjYPp4N5mF 
 
 
-PUT/DELETE routes:
--http://localhost:3001/api/users/:id
--http://localhost:3001/api/thoughts/:id 
+THOUGHT GET/POST/PUT/DELETE routes:
+- https://watch.screencastify.com/v/ZfvPoVDW3pP5iDzi59O8 
 
 
-POST/ DELETE routes:
--http://localhost:3001/api/users/:id/friends/:friendId
--http://localhost:3001/api/thoughts/:id/reactions
+FRIEND POST/DELETE routes:
+- https://watch.screencastify.com/v/K61HY53JdtXB84aoOapF 
+
+REACTION PUT/DELETE
+- https://watch.screencastify.com/v/5VpSmOMhFkwzRh7MQuOe 
 
 ## License
 

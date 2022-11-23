@@ -108,10 +108,10 @@ const thoughtController = {
       .then((dbThoughtData) => {
         !dbThoughtData
           ? res.status(404).json({
-              message: "Error: Thought does not exist.",
+              message: "Error: Reaction does not exist.",
             })
           : res.status(200).json({
-              message: "Thought deleted successfully.",
+              message: "Reaction deleted successfully.",
             });
       })
       .catch((err) => {
